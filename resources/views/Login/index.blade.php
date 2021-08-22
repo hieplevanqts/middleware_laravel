@@ -13,6 +13,14 @@
     <div class="container">
         <div  style="display:block; margin: 0 auto">
         <div class="col-sm-6">
+            @if (session()->has("error"))
+                <div class="alert alert-danger">
+                    <strong>{{ session()->get("error") }}</strong>
+                </div>
+            @endif
+
+
+
            @if(count($errors) > 0)
                 @foreach ($errors->all() as $error)
                     <strong>{{ $error }}</strong>

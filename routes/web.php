@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\{LoginController, AdminController};
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get("/login", [LoginController::class, "getLogin"]);
 Route::post("/login", [LoginController::class, "index"]);
+Route::get("/admin", [AdminController::class, "index"])->middleware('CheckLogin');

@@ -9,8 +9,11 @@ class LoginController extends Controller
 {
     public function index(LoginRequest $request)
     {
-        echo 1;
-        die;
+        if($request->username=="admin@gmail.com" && $request->password=="123456")
+        {
+            session()->put("email", $request->username);
+            return redirect("admin");
+        }
     }
 
     public function getLogin()
